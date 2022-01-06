@@ -1,3 +1,15 @@
+<!-- sldsValidatorIgnore -->
 <template>
-    <div>{recordId}</div>
+    <div if:true={isLoading} class="slds-is-relative">
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </div>
+    <div>
+        <lightning-datatable
+                key-field="id"
+                data={contacts}
+                columns={columns}>
+        </lightning-datatable>
+    </div>
 </template>
