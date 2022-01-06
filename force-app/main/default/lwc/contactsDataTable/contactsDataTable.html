@@ -9,7 +9,8 @@
         <lightning-datatable
                 key-field="id"
                 data={contacts}
-                columns={columns}>
-        </lightning-datatable>
+                columns={columns}
+                onrowaction={handleRowAction}
+        ></lightning-datatable>
     </div>
 </template>

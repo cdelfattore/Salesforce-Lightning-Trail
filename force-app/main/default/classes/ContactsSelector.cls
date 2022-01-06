@@ -1,5 +1,5 @@
 public class ContactsSelector extends fflib_SObjectSelector
-implements IContactsSelector
+    implements IContactsSelector
 {
     public static IContactsSelector newInstance()
 	{
@@ -9,7 +9,11 @@ implements IContactsSelector
     public List<Schema.SObjectField> getSObjectFieldList()
     {
         return new List<Schema.SObjectField> {
+            Contact.Email,
             Contact.Id,
+            Contact.MailingCity,
+            Contact.MailingPostalCode,
+            Contact.MailingStreet,
             Contact.Name,
             Contact.Phone
         };
