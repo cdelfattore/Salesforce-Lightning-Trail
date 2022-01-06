@@ -3,7 +3,6 @@ public with sharing class ContactsDataTableController {
     @AuraEnabled
     public static ContactsWrapper getContacts(String accountId)
     {
-        //return new ContactsWrapper([SELECT Id, Name, Phone FROM Contact WHERE AccountId = :accountId]);
         return new ContactsWrapper(ContactsSelector.newInstance().selectByAccountId(accountId));
     }
 
