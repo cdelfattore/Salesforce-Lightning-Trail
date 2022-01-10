@@ -3,7 +3,17 @@ public with sharing class ContactsDataTableController {
     @AuraEnabled
     public static ContactsWrapper getContacts(String accountId)
     {
-        return new ContactsWrapper(ContactsSelector.newInstance().selectByAccountId(accountId));
+        try
+        {
+            return new ContactsWrapper(ContactsSelector.newInstance().selectByAccountId(accountId));    
+        }
+        catch (Exception e)
+        {
+            AuraHandledException auraException = new AuraException(e.getMessage());
+            auraException.setMessage(e.getStackTraceString());
+            throw auraException;
+        }
+        
     }
 
     public class ContactsWrapper
